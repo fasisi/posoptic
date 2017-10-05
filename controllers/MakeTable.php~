@@ -1,0 +1,60 @@
+<?php
+
+class MakeTable
+{
+  public   
+    $array_rows_per_page,
+    $array_sort_by,
+    $array_goto_page,
+    $rows_per_page,
+    $sort_by,
+    $sort_direction, //0 = asc; 1 = desc
+    $search;
+  public   
+    $list_type;
+  public
+    $action_name = 'Validasi_RefreshTable',
+    $action_name2 = 'Validasi_RefreshTable2';
+  public   $table_content;
+  public   $pageno = 1, $pages = 1;
+  
+  
+	public static function Render($data)
+	{
+		return Yii::app()->controller->renderPartial(
+		  '//maketable/table',
+		  array(
+		    'table_data' => $data
+      ),
+		  true
+    );
+	}
+
+	// -----------------------------------------------------------
+	// Uncomment the following methods and override them if needed
+	/*
+	public function filters()
+	{
+		// return the filter configuration for this controller, e.g.:
+		return array(
+			'inlineFilterName',
+			array(
+				'class'=>'path.to.FilterClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
+	}
+
+	public function actions()
+	{
+		// return external action classes, e.g.:
+		return array(
+			'action1'=>'path.to.ActionClass',
+			'action2'=>array(
+				'class'=>'path.to.AnotherActionClass',
+				'propertyName'=>'propertyValue',
+			),
+		);
+	}
+	*/
+}
